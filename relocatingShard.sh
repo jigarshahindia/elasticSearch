@@ -1,3 +1,7 @@
+#Script to Alloate the unAssigned shards(primary Shards) to localhost:9201  .... It will change status from red to yellow
+#Two Node are in cluster
+#1=> localhost:9200
+#2=> localhost:9201
 cnt=0
 index=0
 for shard in $(curl -XGET localhost:9200/_cat/shards | grep UNASSIGNED | awk '{print $1, $2}'); do
